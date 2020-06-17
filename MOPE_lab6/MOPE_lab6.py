@@ -27,6 +27,7 @@ class Critical_values:
 
 
 counter = 0
+sum_d = 0
 while (counter < 100):
     def generate_matrix():
         def f(X1, X2, X3):
@@ -232,6 +233,7 @@ while (counter < 100):
         print("Критерій Фішера:")
         d = 11 - student_lst.count(0)
         print('Кількість значимих коефіцієнтів дорівнює {}'.format(d))
+        sum_d += d
         if fisher_test():
             print("Рівняння регресії адекватне стосовно оригіналу.")
             adequacy = True
@@ -242,5 +244,6 @@ while (counter < 100):
 
 if (adequacy & homogeneity):
     print("\nПісля виконання " + str(counter) + " ітерацій помилки не виникло!")
+    print('Сумарна кількість значимих коефіцієнтів дорівнює ' + str(sum_d))
 else:
     raise ValueError("Помилка! Відповіді немає!")
